@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body ng-app="app" ng-controller="mainController">
+    <header>
+        <h2>Heroes Program</h2>
+        <input type="text" ng-model="search" placeholder="search heroes...">
+    </header>
+    <aside>
+        <div ng-repeat="lik in heroes | filter:search" id="glavniDiv" ng-click="ShowHide(lik)" ng-model="IsVisible">
+            <div id="divOdSlike"><img src="{{lik.picture}}" style="width: 50px; border-radius: 50%;"></div>
+            <div id="divOpis">{{$index}} {{lik.name}} <br>{{lik.description}}</div>
+
+            <div><i ng-click="deleteHero(lik)" class="fas fa-trash"></i></div>
+        </div>
+    </aside>
+    <main>
+        <div ng-show="IsVisible">
+            <div><img src="{{lik.picture}}" style="width: 50px; border-radius: 50%;"></div>
+            <div>{{$index}} {{lik.name}} <br>{{lik.description}}</div>
+            <div><img
+                    src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGljdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                    alt="" style="width: 90%;margin: 20px; "></div>
+            <div ng-hide="IsVisible">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
