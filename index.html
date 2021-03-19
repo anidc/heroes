@@ -25,17 +25,22 @@
 
             <div><i ng-click="deleteHero(lik)" class="fas fa-trash"></i></div>
         </div>
+        <form class="addNewStudent" ng-submit="addLik()">
+            <input type="text" placeholder="Name of the student" ng-model="newLik.name"><br>
+            <input type="text" placeholder="Describe him in few words" ng-model="newLik.description"><br>
+            <input type="text" placeholder="His image" ng-model="newLik.picture"><br>
+            <button type="submit">Add</button>
+
+        </form>
     </aside>
     <main>
-        <div ng-show="IsVisible">
-            <div><img src="{{lik.picture}}" style="width: 50px; border-radius: 50%;"></div>
-            <div>{{$index}} {{lik.name}} <br>{{lik.description}}</div>
-            <div><img
-                    src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGljdHVyZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                    alt="" style="width: 90%;margin: 20px; "></div>
-            <div ng-hide="IsVisible">
-                <i class="fas fa-times"></i>
+        <div class="mainDiv" ng-show="IsVisible" ng-click="ShowHide">
+            <div class="gornjiDiv">
+                <img src="{{pressedLik.picture}}" style="width: 60px; border-radius: 50%; margin: 10px;">
+                <span class="imeNaMainu"> {{$index}} {{pressedLik.name}}</span>
             </div>
+            <p>{{pressedLik.description}}</p>
+            <img id="velikaSlika" src="{{pressedLik.picture}}" style="width: 100%;">
         </div>
     </main>
 

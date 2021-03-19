@@ -15,9 +15,19 @@ app.controller("mainController", function ($scope) {
         $scope.heroes.splice(index, 1);
     }
 
-    $scope.IsVisible = false;
-
-    $scope.ShowHide = function () {
+    $scope.ShowHide = function (lik) {
         $scope.IsVisible = true;
+        $scope.pressedLik = lik
+    }
+
+    $scope.addLik = function () {
+        $scope.heroes.push({
+            picture: $scope.newLik.picture,
+            name: $scope.newLik.name,
+            description: $scope.newLik.description
+        })
+        $scope.newLik.name = ""
+        $scope.newLik.description = ""
+        $scope.newLik.picture = ""
     }
 })
